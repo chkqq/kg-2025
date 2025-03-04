@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Грузовик (Вид сбоку)</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        svg {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300">
+        <!-- Кузов грузовика -->
+        <rect x="200" y="180" width="250" height="20" fill="grey" stroke="black" stroke-width="2" />
+        
+        <!-- Кабина грузовика -->
+        <rect x="360" y="80" width="90" height="100" fill="red"  stroke="black" stroke-width="2" />
+        
+        <!-- Окна кабины -->
+        <rect x="390" y="100" width="55" height="30" fill="lightblue" stroke="black" stroke-width="2" />
+        
+        <!-- Дверь кабины -->
+        <rect x="390" y="130" width="55" height="40" fill="red" stroke="black" stroke-width="2" />
+
+        <!-- Труба -->
+        <rect x="345" y="60" width="15" height="120" fill="grey" stroke="black" stroke-width="2" />
+        <!-- Колеса -->
+        <circle cx="240" cy="200" r="30" fill="black" />
+        <circle cx="400" cy="200" r="30" fill="black" />
+        
+        <circle cx="240" cy="200" r="15" fill="gray" />
+        <circle cx="400" cy="200" r="15" fill="gray" />
+    </svg>
+</body>
+</html>
