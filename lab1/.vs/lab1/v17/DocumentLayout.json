@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\edu\\kg\\lab1\\",
+  "WorkspaceRootPath": "E:\\edu\\kg-2025\\lab1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{31A246B3-BF0D-426E-A3CE-B99BE674246F}|lab1\\lab1.vcxproj|E:\\edu\\kg\\lab1\\lab1\\lab1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{31A246B3-BF0D-426E-A3CE-B99BE674246F}|lab1\\lab1.vcxproj|E:\\edu\\kg-2025\\lab1\\lab1\\lab1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{31A246B3-BF0D-426E-A3CE-B99BE674246F}|lab1\\lab1.vcxproj|solutionrelative:lab1\\lab1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -28,11 +28,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "lab1.cpp",
-              "DocumentMoniker": "E:\\edu\\kg\\lab1\\lab1\\lab1.cpp",
+              "DocumentMoniker": "E:\\edu\\kg-2025\\lab1\\lab1\\lab1.cpp",
               "RelativeDocumentMoniker": "lab1\\lab1.cpp",
-              "ToolTip": "E:\\edu\\kg\\lab1\\lab1\\lab1.cpp",
+              "ToolTip": "E:\\edu\\kg-2025\\lab1\\lab1\\lab1.cpp",
               "RelativeToolTip": "lab1\\lab1.cpp",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAD4AAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAD4AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-17T10:09:36.803Z",
               "EditorCaption": ""

@@ -9,8 +9,10 @@ export const useDragAndDrop = ({ setImagePosition }: UseDragAndDropProps) => {
   const initialMousePosition = useRef<{ x: number, y: number }>({ x: 0, y: 0 });
 
   const handleMouseDown = (e: React.MouseEvent) => {
-    setDragging(true);
-    initialMousePosition.current = { x: e.clientX, y: e.clientY };
+    if (e.button === 0) { // Только левая кнопка мыши
+      setDragging(true);
+      initialMousePosition.current = { x: e.clientX, y: e.clientY };
+    }
   };
 
   const handleMouseMove = (e: MouseEvent) => {
@@ -25,25 +27,19 @@ export const useDragAndDrop = ({ setImagePosition }: UseDragAndDropProps) => {
     }
   };
 
-  const handleMouseUp = () => {
-    setDragging(false);
-  };
-
-  const handleMouseLeave = () => {
-    setDragging(false);
+  const handleMouseUp = (e: MouseEvent) => {
+    if (e.button === 0) {
+      setDragging(false);
+    }
   };
 
   useEffect(() => {
-    if (dragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-      window.addEventListener('mouseleave', handleMouseLeave);
-    }
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('mouseleave', handleMouseLeave);
     };
   }, [dragging]);
 

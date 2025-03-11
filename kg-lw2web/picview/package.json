@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "fiber": "^1.0.4",
+    "konva": "^9.3.18",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-dropzone": "^14.3.8",
-    "react-image-file-resizer": "^0.4.8"
+    "react-image-file-resizer": "^0.4.8",
+    "react-konva": "^19.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
