@@ -1,6 +1,7 @@
 ﻿#include <windows.h>
 #include <windowsx.h>
 #include <tchar.h>
+#include "finalizer.h"
 
 const TCHAR CLASS_NAME[] = _T("MainWndClass");
 const TCHAR WINDOW_TITLE[] = _T("Truck");
@@ -14,69 +15,97 @@ void OnPaint(HWND hwnd)
 {
     PAINTSTRUCT ps;
     HDC dc = BeginPaint(hwnd, &ps);
-
-    HPEN pen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
     LOGBRUSH brushInfo;
-    brushInfo.lbStyle = BS_SOLID;
-    brushInfo.lbColor = RGB(128, 128, 128);
-    brushInfo.lbHatch = 0;
-    HBRUSH brush = CreateBrushIndirect(&brushInfo);
+    HBRUSH brush;
+    HPEN pen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
+    {
 
-    HPEN oldPen = SelectPen(dc, pen);
-    HBRUSH oldBrush = SelectBrush(dc, brush);
+        brushInfo.lbStyle = BS_SOLID;
+        brushInfo.lbColor = RGB(128, 128, 128);
+        brushInfo.lbHatch = 0;
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
 
-    // Кузов грузовика
-    Rectangle(dc, 150, 210, 400, 235);
+        Rectangle(dc, 150, 210, 400, 235);
+
+    }
 
     // Кабина грузовика
-    SelectBrush(dc, oldBrush);
-    DeleteBrush(brush);
-    brushInfo.lbColor = RGB(255, 0, 0);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
+    {
+        brushInfo.lbColor = RGB(255, 0, 0);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
 
-    Rectangle(dc, 300, 110, 400, 210);
+
+        Rectangle(dc, 300, 110, 400, 210);
+
+    }
 
     // Окна кабины
-    brushInfo.lbColor = RGB(173, 216, 230);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
-    Rectangle(dc, 335, 120, 400, 160);
+    {
+        brushInfo.lbColor = RGB(173, 216, 230);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+
+        Rectangle(dc, 335, 120, 400, 160);
+    }
 
     // Дверь кабины
-    brushInfo.lbColor = RGB(255, 0, 0);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
-    Rectangle(dc, 335, 160, 400, 200);
+    {
+        brushInfo.lbColor = RGB(255, 0, 0);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+
+        Rectangle(dc, 335, 160, 400, 200);
+
+    }
 
     // Колеса
+    {
+        brushInfo.lbColor = RGB(0, 0, 0);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+        Ellipse(dc, 170, 200, 230, 260); // Переднее колесо
+        Ellipse(dc, 330, 200, 390, 260); // Задняя шина
+    }
     // Шины
-    brushInfo.lbColor = RGB(0, 0, 0);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
-    Ellipse(dc, 170, 200, 230, 260); // Переднее колесо
-    Ellipse(dc, 330, 200, 390, 260); // Задняя шина
+    {
+        brushInfo.lbColor = RGB(128, 128, 128);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+        Ellipse(dc, 180, 210, 220, 250); // Передняя шина
+        Ellipse(dc, 340, 210, 380, 250);  // Задняя шина
 
-    brushInfo.lbColor = RGB(128, 128, 128);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
-    Ellipse(dc, 180, 210, 220, 250); // Передняя шина
-    Ellipse(dc, 340, 210, 380, 250);  // Задняя шина
+    }
 
-    // Труба
-    SelectBrush(dc, oldBrush);
-    DeleteBrush(brush);
-    brushInfo.lbColor = RGB(128, 128, 128);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
-    Rectangle(dc, 285, 80, 300, 210);
+    {
+        brushInfo.lbColor = RGB(128, 128, 128);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+        Rectangle(dc, 285, 80, 300, 210);
 
-
-
-    // Завершаем рисование
-    SelectPen(dc, oldPen);
-    DeletePen(pen);
-    DeleteBrush(brush);
+    }
 
     EndPaint(hwnd, &ps);
 }

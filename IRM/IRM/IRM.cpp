@@ -1,6 +1,7 @@
 ﻿#include <windows.h>
 #include <windowsx.h>
 #include <tchar.h>
+#include "finalizer.h"
 
 const TCHAR CLASS_NAME[] = _T("MainWndClass");
 const TCHAR WINDOW_TITLE[] = _T("IRM");
@@ -14,56 +15,69 @@ void OnPaint(HWND hwnd)
 {
     PAINTSTRUCT ps;
     HDC dc = BeginPaint(hwnd, &ps);
-
-    HPEN pen = CreatePen(PS_SOLID, 5, RGB(0, 0, 0));
     LOGBRUSH brushInfo;
-    brushInfo.lbStyle = BS_SOLID;
-    brushInfo.lbColor = RGB(113, 96, 232);
-    brushInfo.lbHatch = 0;
-    HBRUSH brush = CreateBrushIndirect(&brushInfo);
+    HBRUSH brush;
+    HPEN pen = CreatePen(PS_SOLID, 5, RGB(0, 0, 0));
+    {
+        brushInfo.lbStyle = BS_SOLID;
+        brushInfo.lbColor = RGB(113, 96, 232);
+        brushInfo.lbHatch = 0;
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+        Rectangle(dc, 20, 20, 40, 220);
+    }
 
-    HPEN oldPen = SelectPen(dc, pen);
-    HBRUSH oldBrush = SelectBrush(dc, brush);
+    {
+        brushInfo.lbColor = RGB(242, 63, 67);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
 
-    // I
-    Rectangle(dc, 20, 20, 40, 220);
-
-    SelectBrush(dc, oldBrush);
-    DeleteBrush(brush);
-
-    brushInfo.lbColor = RGB(242, 63, 67);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
-
-    // R
-    Rectangle(dc, 60, 20, 80, 220);
-    POINT pointsR1[4] = { {80, 20}, {140, 20}, {120, 100}, {80, 100} };
-    Polygon(dc, pointsR1, 4);
-    POINT pointsR2[4] = { {80, 100}, {120, 220}, {100, 220}, {80, 120} };
-    Polygon(dc, pointsR2, 4);
-
-    SelectBrush(dc, oldBrush);
-    DeleteBrush(brush);
-
-    brushInfo.lbColor = RGB(220, 220, 170);
-    brush = CreateBrushIndirect(&brushInfo);
-    oldBrush = SelectBrush(dc, brush);
-
-    // M
-    POINT pointsM1[4] = { {160, 220}, {180, 20}, {200, 20}, {180, 220} };
-    Polygon(dc, pointsM1, 4);
-    POINT pointsM2[4] = { {200, 220}, {220, 20}, {240, 20}, {220, 220} };
-    Polygon(dc, pointsM2, 4);
-    POINT pointsM3[4] = { {180, 20}, {190, 220}, {210, 220}, {200, 20} };
-    Polygon(dc, pointsM3, 4);
-    POINT pointsM4[4] = { {220, 20}, {230, 220}, {250, 220}, {240, 20} };
-    Polygon(dc, pointsM4, 4);
+        // R
+        Rectangle(dc, 60, 20, 80, 220);
+        POINT pointsR1[4] = { {80, 20}, {140, 20}, {120, 100}, {80, 100} };
+        Polygon(dc, pointsR1, 4);
+        POINT pointsR2[4] = { {80, 100}, {120, 220}, {100, 220}, {80, 120} };
+        Polygon(dc, pointsR2, 4);
 
 
-    SelectPen(dc, oldPen);
-    SelectBrush(dc, oldBrush);
-    DeletePen(pen);
-    DeleteBrush(brush);
+    }
+    {
+        brushInfo.lbColor = RGB(255, 255, 255);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+
+        POINT pointsR1[4] = { {95, 30}, {125, 30}, {110, 85}, {95, 85} };
+        Polygon(dc, pointsR1, 4);
+
+    }
+    {
+
+        brushInfo.lbColor = RGB(220, 220, 170);
+        brush = CreateBrushIndirect(&brushInfo);
+        auto restoreOldBrush = util::Finally([dc, oldBrush = SelectObject(dc, brush)]
+            {
+                SelectObject(dc, oldBrush);
+            });
+
+        // M
+        POINT pointsM1[4] = { {160, 220}, {180, 20}, {200, 20}, {180, 220} };
+        Polygon(dc, pointsM1, 4);
+        POINT pointsM2[4] = { {200, 220}, {220, 20}, {240, 20}, {220, 220} };
+        Polygon(dc, pointsM2, 4);
+        POINT pointsM3[4] = { {180, 20}, {190, 220}, {210, 220}, {200, 20} };
+        Polygon(dc, pointsM3, 4);
+        POINT pointsM4[4] = { {220, 20}, {230, 220}, {250, 220}, {240, 20} };
+        Polygon(dc, pointsM4, 4);
+    }
 
     EndPaint(hwnd, &ps);
 }

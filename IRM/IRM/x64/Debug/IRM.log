@@ -1,0 +1,3 @@
+﻿  IRM.cpp
+D:\kg-2025\IRM\IRM\IRM.cpp(152,15): warning C4244: return: преобразование "WPARAM" в "int", возможна потеря данных
+  IRM.vcxproj -> D:\kg-2025\IRM\x64\Debug\IRM.exe

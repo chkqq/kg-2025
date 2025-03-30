@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="finalizer.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="IRM.h" />
     <ClInclude Include="Resource.h" />
