@@ -1,0 +1,35 @@
+﻿  CGLApplication.cpp
+  CMyApplication.cpp
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.h(18,28): warning C4305: инициализация: усечение из "double" в "float"
+  (компиляция исходного файла "CMyApplication.cpp")
+  
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.h(19,28): warning C4305: инициализация: усечение из "double" в "float"
+  (компиляция исходного файла "CMyApplication.cpp")
+  
+E:\edu\kg-2025\lw5\lw5\task4\task4\CFrame.h(26,24): warning C4244: инициализация: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "CMyApplication.cpp")
+  
+E:\edu\kg-2025\lw5\lw5\task4\task4\CMyApplication.cpp(144,30): warning C4244: аргумент: преобразование "const double" в "GLfloat", возможна потеря данных
+E:\edu\kg-2025\lw5\lw5\task4\task4\CMyApplication.cpp(144,22): warning C4244: аргумент: преобразование "const double" в "GLfloat", возможна потеря данных
+  CTextureLoader.cpp
+  CRocket.cpp
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.h(18,28): warning C4305: инициализация: усечение из "double" в "float"
+  (компиляция исходного файла "CRocket.cpp")
+  
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.h(19,28): warning C4305: инициализация: усечение из "double" в "float"
+  (компиляция исходного файла "CRocket.cpp")
+  
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(21,25): warning C4305: аргумент: усечение из "double" в "GLfloat"
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(21,20): warning C4305: аргумент: усечение из "double" в "GLfloat"
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(21,15): warning C4305: аргумент: усечение из "double" в "GLfloat"
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(31,33): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(38,25): warning C4305: аргумент: усечение из "double" в "GLfloat"
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(38,20): warning C4305: аргумент: усечение из "double" в "GLfloat"
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(38,15): warning C4305: аргумент: усечение из "double" в "GLfloat"
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(43,21): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(44,51): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(44,22): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+E:\edu\kg-2025\lw5\lw5\task4\task4\CRocket.cpp(52,43): warning C4244: аргумент: преобразование "double" в "GLfloat", возможна потеря данных
+  task4.cpp
+  Создание кода...
+  task4.vcxproj -> E:\edu\kg-2025\lw5\lw5\task4\x64\Debug\task4.exe

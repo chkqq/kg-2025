@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\1\u0060University\\CG\\lw5\\task1_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BCF02938-5AAB-40AD-BB9A-ACE96005149F}|task2_w\\task2_w.vcxproj|D:\\1\u0060University\\CG\\lw5\\task1_1\\task2_w\\sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BCF02938-5AAB-40AD-BB9A-ACE96005149F}|task2_w\\task2_w.vcxproj|solutionrelative:task2_w\\sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "sphere.h",
+              "DocumentMoniker": "D:\\1\u0060University\\CG\\lw5\\task1_1\\task2_w\\sphere.h",
+              "RelativeDocumentMoniker": "task2_w\\sphere.h",
+              "ToolTip": "D:\\1\u0060University\\CG\\lw5\\task1_1\\task2_w\\sphere.h",
+              "RelativeToolTip": "task2_w\\sphere.h",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwFkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-07T12:44:21.442Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
