@@ -62,7 +62,7 @@ const Tile: React.FC<TileProps> = ({ position, imageIndex, isFlipped, isMatched,
   castShadow
   receiveShadow
 >
-  <boxGeometry args={[0.9, 0.9, 0.05]} />
+  <boxGeometry args={[0.9, 0.9, 0.  ]} />
   {[
     backTexture, // Right
     backTexture, // Left
