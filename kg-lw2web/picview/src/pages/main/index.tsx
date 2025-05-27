@@ -15,7 +15,7 @@ const MainPage: React.FC = () => {
 
     return(
         <div className={styles.main_box}>
-            <ChessScene />
+            <TorusPyramid />
         </div>
     )
 }
